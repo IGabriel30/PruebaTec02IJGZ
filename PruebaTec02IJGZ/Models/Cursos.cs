@@ -11,7 +11,7 @@ namespace PruebaTec02IJGZ.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El campo {0} es requerido")]
         [StringLength(100)]
         public string Nombre { get; set; }
 
@@ -19,8 +19,9 @@ namespace PruebaTec02IJGZ.Models
 
 
         [DataType(DataType.Date)]
+        [Required(ErrorMessage = "El campo {0} es requerido")]
         public DateTime FechaInicio { get; set; }
 
-       
+        public ICollection<Estudiantes> Estudiantes { get; set; }
     }
 }
